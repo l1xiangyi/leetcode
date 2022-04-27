@@ -4,7 +4,7 @@ class Settings {
   public readonly mode = 'dark';
 
   private constructor() {
-
+    
   }
 
   static getInstance(): Settings {
