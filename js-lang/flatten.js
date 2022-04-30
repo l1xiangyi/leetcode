@@ -8,7 +8,14 @@ function flatten(arr) {
   return arr;
 }
 
-Array.prototype.flatten = function () {};
+function flat(arr, depth = 1) {
+  if (depth > 0) {
+    return arr.reduce((pre, cur) => {
+      return pre.concat(Array.isArray(cur) ? flat(cur, depth - 1) : cur);
+    }, []);
+  }
+  return arr.slice();
+}
 
 let arr = [1, 2, [3, 4, 5, [6, 7], 8], 9, 10, [11, [12, 13]]];
 
